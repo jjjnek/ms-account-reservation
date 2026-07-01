@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004
+      author: admin
+      changes:
+        - createTable:
+            tableName: client
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: full_name
+                  type: VARCHAR(100)
+              - column:
+                  name: citizenship
+                  type: VARCHAR(100)
+              - column:
+                  name: client_type
+                  type: VARCHAR(100)
+              - column:
+                  name: document_number
+                  type: VARCHAR(100)
+              - column:
+                  name: document_series
+                  type: VARCHAR(100)
+              - column:
+                  name: document_type
+                  type: VARCHAR(100)
+              - column:
+                  name: mdm_code
+                  type: BIGINT

@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002
+      author: admin
+      changes:
+        - createTable:
+            tableName: account
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: status_id
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: client_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: account_type
+                  type: VARCHAR(100)
+              - column:
+                  name: currency_code
+                  type: VARCHAR(10)
