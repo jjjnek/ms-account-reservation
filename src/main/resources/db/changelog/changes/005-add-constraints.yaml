@@ -3,16 +3,19 @@ databaseChangeLog:
       id: 005
       author: admin
       changes:
-        - addForeignKeyConstraint:
-            baseTableName: account
-            baseColumnNames: status_id
-            constraintName: fk_account_status
-            referencedTableName: account_status
-            referencedColumnNames: id
-
-        - addForeignKeyConstraint:
-            baseTableName: account
-            baseColumnNames: client_id
-            constraintName: fk_client
-            referencedTableName: client
-            referencedColumnNames: id
+          - addForeignKeyConstraint:
+                baseTableName: account
+                baseColumnNames: status_id
+                constraintName: fk_account_status
+                referencedTableName: account_status
+                referencedColumnNames: id
+          - addForeignKeyConstraint:
+                baseTableName: account
+                baseColumnNames: client_id
+                constraintName: fk_client
+                referencedTableName: client
+                referencedColumnNames: id
+          - addUniqueConstraint:
+                tableName: account_status
+                columnNames: name
+                constraintName: account_status_name

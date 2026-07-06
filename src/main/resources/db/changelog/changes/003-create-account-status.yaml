@@ -2,6 +2,13 @@ databaseChangeLog:
   - changeSet:
       id: 003
       author: admin
+
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: account_status
+
       changes:
         - createTable:
             tableName: account_status
@@ -16,7 +23,8 @@ databaseChangeLog:
               - column:
                   name: name
                   type: VARCHAR(100)
+                  constraints:
+                    nullable: false
               - column:
                   name: description
                   type: VARCHAR(300)
-

@@ -2,6 +2,13 @@ databaseChangeLog:
   - changeSet:
       id: 002
       author: admin
+
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: account
+
       changes:
         - createTable:
             tableName: account
@@ -28,3 +35,13 @@ databaseChangeLog:
               - column:
                   name: currency_code
                   type: VARCHAR(10)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false

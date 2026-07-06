@@ -2,6 +2,13 @@ databaseChangeLog:
   - changeSet:
       id: 004
       author: admin
+
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: client
+
       changes:
         - createTable:
             tableName: client
@@ -33,3 +40,13 @@ databaseChangeLog:
               - column:
                   name: mdm_code
                   type: BIGINT
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
